@@ -21,7 +21,6 @@ const app = express();
 // middleware exprestion
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-app.use(ageCkecker);
 
 
 // import studentRouter route here
