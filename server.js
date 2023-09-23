@@ -6,8 +6,7 @@ import studentRouter from "./routers/router.js";
 import usersRouter from "./routers/user.js";
 import proRouter from "./routers/pro.js";
 import getStudents from "./routers/students.js";
-
-import {ageCkecker} from "./middelwares/ageCheck.js";
+import register from "./routers/register.js";
 
 // import controllers 
 
@@ -28,6 +27,7 @@ app.use(studentRouter);
 app.use(usersRouter);
 app.use(proRouter);
 app.use(getStudents);
+app.use(register);
 
 
 // init port number here
