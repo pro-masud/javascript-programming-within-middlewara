@@ -1,0 +1,42 @@
+import express from "express";
+import colors from "colors";
+import dotenv from "dotenv";
+
+import studentRouter from "./routers/router.js";
+import usersRouter from "./routers/user.js";
+import proRouter from "./routers/pro.js";
+import getStudents from "./routers/students.js";
+
+import {ageCkecker} from "./middelwares/ageCheck.js";
+
+// import controllers 
+
+// init dotenv
+dotenv.config();
+
+// init express
+const app = express();
+
+
+// middleware exprestion
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(ageCkecker);
+
+
+// import studentRouter route here
+app.use(studentRouter);
+app.use(usersRouter);
+app.use(proRouter);
+app.use(getStudents);
+
+
+// init port number here
+const PORT = process.env.PORT || 6060;
+
+
+// createa server 
+app.listen(PORT, () => {
+    console.log(`Server Is Running Port ${PORT} Number`.bgGreen.black);
+});
+
